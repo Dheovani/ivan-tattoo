@@ -1,0 +1,111 @@
+.services__list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.service {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 5fr) minmax(0, 5fr) auto;
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: start;
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+  border-bottom: 1px solid var(--line-strong);
+  isolation: isolate;
+}
+
+.service::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0 -1px;
+  z-index: -1;
+  background: var(--graphite);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.service:hover::before,
+.service:focus-within::before {
+  transform: scaleY(1);
+}
+
+.service__num {
+  padding-top: 0.75rem;
+  color: var(--orange);
+}
+
+.service__title {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  transition: transform 0.6s var(--ease-out), color 0.4s;
+}
+
+.service:hover .service__title {
+  transform: translateX(0.75rem);
+  color: var(--orange);
+}
+
+.service__body {
+  display: grid;
+  gap: 1.25rem;
+  padding-top: 0.75rem;
+  color: var(--concrete);
+  max-width: 48ch;
+}
+
+.service__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service__artists {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--bone);
+}
+
+.service__cta {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-top: 0.5rem;
+  border: 1px solid var(--line-strong);
+  font-size: 1.3rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.4s var(--ease-out);
+}
+
+.service__cta:hover,
+.service__cta:focus-visible {
+  background: var(--red);
+  border-color: var(--red);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 860px) {
+  .service {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .service__num {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+
+  .service__title {
+    grid-column: 1;
+  }
+
+  .service__body {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding-top: 0;
+  }
+
+  .service__cta {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

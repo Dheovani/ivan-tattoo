@@ -1,0 +1,155 @@
+.about {
+  overflow: hidden;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.about__media img,
+.about__media .image-slot {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.about__caption {
+  margin-top: 0.9rem;
+}
+
+/* Sugestão abstrata do mural enquanto a foto real não chega. */
+.about__mural {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about__mural span {
+  position: absolute;
+  display: block;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  filter: blur(1px);
+}
+
+.about__mural span:nth-child(1) {
+  top: 12%;
+  left: -10%;
+  width: 85%;
+  height: 26%;
+  background: var(--red);
+  transform: rotate(-8deg);
+  clip-path: polygon(0 20%, 100% 0, 96% 100%, 4% 85%);
+}
+
+.about__mural span:nth-child(2) {
+  top: 34%;
+  right: -8%;
+  width: 60%;
+  height: 22%;
+  background: var(--orange);
+  transform: rotate(6deg);
+  clip-path: polygon(6% 0, 100% 12%, 100% 90%, 0 100%);
+}
+
+.about__mural span:nth-child(3) {
+  top: 8%;
+  left: 40%;
+  width: 3px;
+  height: 64%;
+  background: var(--bone);
+  transform: rotate(14deg);
+}
+
+.about__text {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: clamp(0rem, 6vw, 6rem);
+  color: var(--concrete);
+  max-width: 60ch;
+}
+
+.about__text strong {
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.about__lead {
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  line-height: 1.3;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+
+.about__note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.about__note-mark {
+  width: 10px;
+  height: 10px;
+  background: var(--red-hot);
+}
+
+.about__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.about__fact {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about__fact:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.about__fact:nth-child(even) {
+  padding-left: 1.5rem;
+}
+
+.about__fact dd {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--bone);
+}
+
+.about__fact:first-child dd {
+  color: var(--orange);
+}
+
+.about__band {
+  margin-top: clamp(5rem, 10vw, 9rem);
+  font-size: clamp(4rem, 13vw, 13rem);
+  white-space: nowrap;
+  line-height: 0.9;
+  transform: translateX(-4%);
+}
+
+@media (max-width: 860px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about__media {
+    max-width: 520px;
+  }
+
+  .about__media .image-slot,
+  .about__media img {
+    aspect-ratio: 4 / 3;
+  }
+}
